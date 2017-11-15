@@ -8,6 +8,10 @@ class SalesController < ApplicationController
 		@sale = Sale.new
 	end
 
+	def show
+		@sale = Sale.find(params[:id])
+	end
+
 	def create
 		@sale = Sale.new(sale_params)
 			if @sale.save
@@ -35,7 +39,8 @@ class SalesController < ApplicationController
 			:taxe,
   			:exposition,
   			:heating,
-  			:phase
+  			:phase,
+  			photos: []
 			)
 	end
 
