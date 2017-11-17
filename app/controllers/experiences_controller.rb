@@ -1,4 +1,5 @@
 class ExperiencesController < ApplicationController
+	skip_before_action :authenticate_user!, only: [:index, :show]
 
 	def index
 		@experiences = Experience.all
@@ -25,7 +26,7 @@ class ExperiencesController < ApplicationController
 	private
 
 	def experience_params
-  		params.require(:product).permit(:title, :company, :logo, :description, :starts_at, :ends_at)
+  		params.require(:experience).permit(:title, :company, :logo, :description, :starts_at, :ends_at)
 	end
 
 	def set_experience
