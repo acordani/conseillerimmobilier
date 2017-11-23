@@ -13,7 +13,9 @@ class SalesController < ApplicationController
 	end
 
 	def create
+		
 		@sale = Sale.new(sale_params)
+		@sale.user_id = current_user.id
 			if @sale.save
 				redirect_to sale_path(@sale)
 			else
@@ -40,6 +42,7 @@ class SalesController < ApplicationController
   			:exposition,
   			:heating,
   			:phase,
+  			:user_id
   			photos: []
 			)
 	end
