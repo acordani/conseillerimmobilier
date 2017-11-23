@@ -18,11 +18,17 @@ class ExperiencesController < ApplicationController
 		
 		@experience = Experience.new(experience_params)
 		@experience.user_id = current_user.id
-			if @experience.save
-				redirect_to experience_path(@experience)
-			else
-				render :new
+		if @experience.save
+			respond_to do |format|
+				format.html { redirect_to experience_path(@experience) }
+				format.js
 			end
+		else
+      		respond_to do |format|
+        		format.html { render 'experiences/show' }
+        		format.js  # <-- idem
+        	end
+		end
 	end
 
 	private
