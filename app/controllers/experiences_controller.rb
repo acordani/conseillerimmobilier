@@ -18,23 +18,24 @@ class ExperiencesController < ApplicationController
 		
 		@experience = Experience.new(experience_params)
 		@experience.user_id = current_user.id
-		if @experience.save
-			respond_to do |format|
-				format.html { redirect_to experience_path(@experience) }
-				format.js
-			end
-		else
-      		respond_to do |format|
-        		format.html { render 'experiences/show' }
-        		format.js  # <-- idem
+		
+			if @experience.save
+			
+				redirect_to experience_path(@experience)
+				
+			
+			else
+      		
+        		render :new
+        		
         	end
-		end
+		
 	end
 
 	private
 
 	def experience_params
-  		params.require(:experience).permit(:title, :company, :logo, :description, :starts_at, :ends_at)
+  		params.require(:experience).permit(:title, :company, :currently_work, :logo, :description, :starts_at, :ends_at)
 	end
 
 	def set_experience

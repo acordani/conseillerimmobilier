@@ -1,10 +1,21 @@
-<%= simple_form_for(@experience, remote: true) do|f| %>
-	<%= f.input :title %>
-	<%= f.input :description %>
-	<%= f.input :company %>
-	<%= f.input :starts_at %>
-	<%= f.input :ends_at %>
-	<%= f.input :logo, as: :attachinary %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<%= simple_form_for @experience do|f| %>
+				<%= f.input :title %>
+				<%= f.input :description %>
+				<%= f.input :company %>
+				<%= f.input :currently_work %>
+				<%= f.input :starts_at %>
+				<div id="ends">
+					<%= f.input :ends_at %>
+				</div>
+				
 
-	<%= f.button :submit %>
-<% end %>
+				<%= f.input :logo, as: :attachinary %>
+
+				<%= f.button :submit %>
+			<% end %>
+		</div>
+	</div>
+</div>
