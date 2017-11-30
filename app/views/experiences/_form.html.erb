@@ -1,18 +1,39 @@
 <div class="container">
+
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
+			<h3 > Ajoutez une experience </h3>
 			<%= simple_form_for @experience do|f| %>
-				<%= f.input :title %>
-				<%= f.input :description %>
-				<%= f.input :company %>
-				<%= f.input :currently_work %>
-				<%= f.input :starts_at %>
+				<p>Choisissez un titre</p>
+				<%= f.input :title, label: false %>
+
+				<p>Indiquer une description</p>
+				<%= f.input :description, label: false %>
+
+				<p>Indiquer votre société</p>
+				<%= f.input :company , label: false %>
+				<%= f.input :currently_work, label:"Je travaille actuellement à ce poste" %>
+				<p> Quand avez-vous commencé ?</p>
+				<div class="col-md-6">
+					
+					<%= f.input :start_month, collection: Experience::MONTH, prompt:"Choisissez un mois", label: false%>
+				</div>
+				<div class="col-md-6">
+					<%= f.input :start_year, collection: 1950..2017, prompt:"Choisissez une année", label: false %>
+				</div>
 				<div id="ends">
-					<%= f.input :ends_at %>
+					<p> Quand avez-vous terminé ?</p>
+					<div class="col-md-6">
+						<%= f.input :end_month, collection: Experience::MONTH, label: false, prompt:"Choisissez un mois" %>
+					</div>
+					<div class="col-md-6">
+						<%= f.input :end_year, collection: 1950..2017, label: false, prompt:"Choisissez une année" %>
+					</div>
+					
 				</div>
 				
-
-				<%= f.input :logo, as: :attachinary %>
+				<p> Choisissez une photo représentant la société</p>
+				<%= f.input :logo, as: :attachinary, label: false %>
 
 				<%= f.button :submit %>
 			<% end %>
