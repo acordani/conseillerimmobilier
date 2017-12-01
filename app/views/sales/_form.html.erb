@@ -1,5 +1,26 @@
-<%= simple_form_for @sale do|f| %>
-	
-	<%= f.input :photos, as: :attachinary %>
-	<%= f.button :submit %>
-<% end %>
+<div class="container">
+    <%= simple_form_for @sale do|f| %>
+
+
+    	<div class="row">
+            <div class="icon-thread">
+               	<div class="col-xs-4">
+                    <input type="radio" id="building" name="sale[construction]" value="Appartement">
+                    	<label for="building" data-toggle="tooltip" title="Appartement">
+                        	<%= image_tag 'building.svg', class: 'level' %>
+                      	</label>
+                </div>
+                <div class="col-xs-4">
+                    <input type="radio" id="house" name="sale[construction]" value="Maison" >
+                    	<label for="house" data-toggle="tooltip" title="Maison">
+                        	<%= image_tag 'house.svg', class: 'level' %>
+                      	</label>
+                </div>
+                    
+            </div>
+        </div>
+    	
+    	<%= f.input :photos, as: :attachinary %>
+    	<%= f.button :submit %>
+    <% end %>
+</div>

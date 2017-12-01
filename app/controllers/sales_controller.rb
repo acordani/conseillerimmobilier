@@ -43,6 +43,7 @@ class SalesController < ApplicationController
   			:heating,
   			:phase,
   			:user_id,
+  			:construction,
   			photos: []
 			)
 	end
