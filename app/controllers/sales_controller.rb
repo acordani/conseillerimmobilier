@@ -42,7 +42,7 @@ class SalesController < ApplicationController
   			:exposition,
   			:heating,
   			:phase,
-  			:user_id
+  			:user_id,
   			photos: []
 			)
 	end

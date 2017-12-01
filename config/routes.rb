@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :sales
   resources :experiences
 
+  namespace :admin do
+  	resources :sales, only: [:index]
+  end
+
   mount Attachinary::Engine => "/attachinary"
   
 end
