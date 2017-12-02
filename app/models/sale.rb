@@ -1,6 +1,7 @@
 class Sale < ApplicationRecord
 
 	CONSTRUCTION = %w(Appartement Maison)
+	PHASE = ["A vendre", "Vendu"]
 
 
 	belongs_to :user
