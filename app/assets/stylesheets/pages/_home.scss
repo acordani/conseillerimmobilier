@@ -11,6 +11,10 @@
   	background-color: white;
   }
 
+  h3 {
+  font-size:28px;
+  }
+
   //Input & Button
 
   input {
@@ -35,5 +39,24 @@
     	text-decoration: none;
     	color: white;
   }
+
+  .user-card {
+  background-size: cover;
+  height: 250px;
+  width:250px;
+  margin-bottom: 0;
+  position: relative;
+  display:flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  overflow:hidden;
+  justify-content: space-around;
+  &:hover {
+    background-color: white;
+    opacity: 0.8;
+  }
+}
 
 }
