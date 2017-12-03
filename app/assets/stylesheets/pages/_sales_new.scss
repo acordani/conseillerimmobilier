@@ -51,5 +51,26 @@
     font-weight: lighter;
     }
 
+    .attachinary_container{
+  
+  margin-top: 20px;
+}
+
+.attachinary_container ul li{
+  position:relative;
+  display: inline-block;
+  margin-right:10px;
+}
+
+.attachinary_container ul li a{
+  position: absolute;
+  bottom: 0px;
+  left:0px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  background-color: rgba(0,0,0,.85);
+}
+
     
 }
