@@ -5,6 +5,7 @@ class Experience < ApplicationRecord
 
   MONTH = %w(janvier fevrier mars avril mai juin juillet août septembre octobre novembre decembre)
 
-  validates :starts_at, inclusion: { in: MONTH }
+  validates :start_month, inclusion: { in: MONTH }
+
    
 end

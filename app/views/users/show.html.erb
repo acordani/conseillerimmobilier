@@ -7,11 +7,17 @@
           	<% else %>
             	<%= cl_image_tag @user.picture.path, height: 200, width: 200, crop: :fill, class: "img-responsive" %>
           	<% end %>
+          	<% if @user == current_user %>
+          		<%= link_to "Modifier mon Profil", edit_user_registration_path, class:"btn btn-primary"  %>
+          	<% end %>
 		</div>
 		<div class="col-md-9 mt-50">
-			<h2><%= @user.first_name %> <%=@user.last_name %></h2>
+			<h2><%= @user.first_name %> <%= @user.last_name %></h2>
 			<% if @user.is_realestate == true %>
 				<p>Conseiller immobilier</p>
+			<% end %>
+			<% @user.experiences.each do |experience| %>
+				<%= experience.company %>
 			<% end %>
 		</div>
 	</div>
