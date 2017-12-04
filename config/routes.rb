@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :sales
   resources :experiences
+  resources :users, only: [:show]
 
   namespace :admin do
   	resources :sales, only: [:index]

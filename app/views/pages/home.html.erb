@@ -18,13 +18,17 @@
 		<% @users.each do |user| %>
 			<div class="col-md-3 mr-10">
 				<% if user.picture != nil %>
-					<div class="user-card" style="background-image: linear-gradient(135deg, rgba(150,109,105,0.2), rgba(150,109,105,0.4)), url('<%= cl_image_path user.picture.path %>');">
+					<div class="user-card" style="background-image: linear-gradient(135deg, rgba(241, 233, 232, 0.2), rgba(115, 112, 112, 0.4)), url('<%= cl_image_path user.picture.path %>');">
+					<%= link_to "", user_path(user), class: "card-link" %>
 					</div>
-					<div class="text-center">
+					<div class="">
 						<p>email: <%= user.email %></p>
 					</div>
+
 					
 				<% end %>
+				
+				
 			</div>
 			
 		<% end %>
