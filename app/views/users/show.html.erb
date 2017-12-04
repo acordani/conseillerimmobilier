@@ -1,1 +1,12 @@
-<%= @user.email %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 mt-50">
+			<% if @user.picture.nil?  %>
+            	<%= image_tag "picto_base.png", height: 200, width: 200, crop: :fill, class: "img-responsive" %>
+            
+          	<% else %>
+            	<%= cl_image_tag @user.picture.path, height: 200, width: 200, crop: :fill, class: "img-responsive" %>
+          	<% end %>
+		</div>
+	</div>
+</div>
