@@ -1,5 +1,6 @@
 class ExperiencesController < ApplicationController
 	skip_before_action :authenticate_user!, only: [:index, :show]
+	before_action :set_experience, only: [:show, :destroy, :edit, :update]
 
 	def index
 		@experiences = Experience.all
@@ -32,10 +33,20 @@ class ExperiencesController < ApplicationController
 		
 	end
 
+	def edit
+	end
+
+	def update
+		@user = current_user
+		@experience.update(experience_params)
+		redirect_to user_path(@user)
+	end
+
+
 	private
 
 	def experience_params
-  		params.require(:experience).permit(:title, :company, :currently_work, :logo, :description, :start_year, :end_year, :end_month, :start_month)
+  		params.require(:experience).permit(:title, :company, :city, :currently_work, :logo, :description, :start_year, :end_year, :end_month, :start_month)
 	end
 
 	def set_experience
