@@ -16,13 +16,13 @@ class ExperiencesController < ApplicationController
 	end
 
 	def create
-		
+		@user = current_user
 		@experience = Experience.new(experience_params)
 		@experience.user_id = current_user.id
 		
 			if @experience.save
 			
-				redirect_to experience_path(@experience)
+				redirect_to user_path(@user)
 				
 			
 			else
