@@ -16,9 +16,29 @@
 			<% if @user.is_realestate == true %>
 				<p>Conseiller immobilier</p>
 			<% end %>
-			<% @user.experiences.each do |experience| %>
-				<%= experience.company %>
-			<% end %>
+			
 		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Mes experiences</h3>
+		</div>
+		<% @user.experiences.each do |experience| %>
+			<div class="col-md-1">
+				<%= cl_image_tag experience.logo.path,height: 200, width: 200, crop: :fill, class: "img-responsive" %>
+			</div>
+			<div class="col-md-6">
+				<p><%= experience.title %></p>
+				<p><%= experience.company %></p>
+				<p><%= experience.start_month%> <%= experience.start_year%>
+				-
+					<% if experience.currently_work == true %>
+						Aujourd'hui 
+					<% else %>
+						<%= experience.end_month %> <%= experience.end_year %>
+					<% end %>
+				</p>
+			</div>
+		<% end %>
 	</div>
 </div>
