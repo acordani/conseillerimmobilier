@@ -16,6 +16,12 @@
 			<% if @user.is_realestate == true %>
 				<p>Conseiller immobilier</p>
 			<% end %>
+			<div class="col-md-3 pl-0">
+				<p style="font-weight:bold">A propos de <%= @user.first_name %></p>
+			</div>
+			<div class="col-md-9">
+				<p><%= @user.description %></p>
+			</div>
 			
 		</div>
 	</div>
