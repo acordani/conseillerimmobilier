@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :sales
-  resources :experiences
-  resources :users, only: [:show]
+  
+  resources :users, only: [:show] do
+    resources :experiences
+  end
 
   namespace :admin do
   	resources :sales, only: [:index]

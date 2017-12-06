@@ -26,7 +26,7 @@
 		</div>
 		<div class="col-md-1">
 			<% if @user == current_user %>
-					<%= link_to new_experience_path do %>
+					<%= link_to new_user_experience_path(@user) do %>
 						<i class="fa fa-plus" aria-hidden="true"></i>
 					<% end %>
 				<% end %>
@@ -36,7 +36,9 @@
 			<div class="row">
 				<div class="col-md-3"></div>
 				<div class="col-md-1">
-					<%= cl_image_tag experience.logo.path,height: 200, width: 200, crop: :fill, class: "img-responsive" %>
+					<% if experience.logo.present? %>
+						<%= cl_image_tag experience.logo.path,height: 200, width: 200, crop: :fill, class: "img-responsive" %>
+					<% end %>
 				</div>
 
 				<div class="col-md-6">
@@ -55,7 +57,7 @@
 				</div>
 				<div class="col-md-1">
 					<% if @user == current_user %>
-						<%= link_to edit_experience_path(experience) do %>
+						<%= link_to edit_user_experience_path(experience.user, experience) do %>
 							<i class="fa fa-pencil" aria-hidden="true"></i>
 						<% end %>
 					<% end %>

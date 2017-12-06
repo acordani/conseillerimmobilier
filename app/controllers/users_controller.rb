@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@experience = Experience.new
+		# @experience = Experience.order(created_at: :asc)
 
 	end
 

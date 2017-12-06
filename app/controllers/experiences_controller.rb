@@ -1,6 +1,7 @@
 class ExperiencesController < ApplicationController
 	skip_before_action :authenticate_user!, only: [:index, :show]
-	before_action :set_experience, only: [:show, :destroy, :edit, :update]
+	before_action :set_user
+	before_action :set_experience
 
 	def index
 		@experiences = Experience.all
@@ -8,17 +9,21 @@ class ExperiencesController < ApplicationController
 
 	def show
 		@experience = Experience.find(params[:id])
+
+
 	end
 
 
 	def new
-		@experience = Experience.new
+		@experience = @user.experiences.build
+		
 	end
 
 	def create
-		@user = current_user
+		# @user = current_user
 		@experience = Experience.new(experience_params)
-		@experience.user_id = current_user.id
+		@experience.user = @user
+		# @experience.user_id = current_user.id
 		
 			if @experience.save
 			
@@ -34,6 +39,8 @@ class ExperiencesController < ApplicationController
 	end
 
 	def edit
+		
+
 	end
 
 	def update
@@ -47,6 +54,10 @@ class ExperiencesController < ApplicationController
 
 	def experience_params
   		params.require(:experience).permit(:title, :company, :city, :currently_work, :logo, :description, :start_year, :end_year, :end_month, :start_month)
+	end
+
+	def set_user
+		@user = User.find(params[:user_id])
 	end
 
 	def set_experience
