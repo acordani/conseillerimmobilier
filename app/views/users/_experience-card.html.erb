@@ -25,6 +25,9 @@
 							<%= link_to edit_user_experience_path(experience.user, experience) do %>
 								<i class="fa fa-pencil" aria-hidden="true"></i>
 							<% end %>
+							<%= link_to user_experience_path(experience.user, experience), method: :delete, data: { confirm: "Etes vous certain ?"} do %>
+								<i class="fa fa-times ml-10" aria-hidden="true"></i>
+							<% end %>
 						<% end %>
 					</div>
 				</div>
