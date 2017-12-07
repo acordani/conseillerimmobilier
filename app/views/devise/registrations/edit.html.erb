@@ -54,7 +54,40 @@
               <%= f.input :password_confirmation, autocomplete: "off", hint: "Le laisser vide si vous ne souhaitez pas changer", required: false, label: false %>
             </div>
           </div>
+
+
+
+
+
+          <%= f.label 'Selectionnez au moins 1 categorie' %>
+                  <div class="form-group">
+                    <input type="hidden" name="user[competence_ids][]" value="">
+                    <div class="competence-choices">
+                      <% Competence.all.order(name: :asc).each do |competence| %>
+                      <!-- <div>
+                        <%= check_box_tag "user[competence_ids][]", competence.id %>
+                        <%= competence.name %>
+                      </div> --><!-- 
+                      <%= check_box_tag "user[competence_ids][]", competence.id %>
+                    <%= competence.name %> -->
+                      <input type="checkbox" name="user[competence_ids][]" id="user_competence_ids_<%= competence.id%>" class="hidden" value="<%=competence.id%>" />
+                      <label class="competence-choice" for="user_competence_ids_<%= competence.id %>">
+                        <%= competence.name %>
+                        <i class="fa fa-check"></i>
+
+                      </label>
+                      <!-- <input type="checkbox" name="user[competence_ids][]" id="profile_competence_ids_" value="<%= competence.id %>" /> --><!-- 
+                        <%= competence.name %> -->
+                
+                    
+                      <% end %>
+              </div>
+                </div>
           
+
+
+
+
           
           <%= f.input :picture, as: :attachinary %>
         </div>

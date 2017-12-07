@@ -21,4 +21,8 @@ $(document).ready(function() {
     		$("#price").hide();
     	} else {$("#price").show()}
     });
+
+    $(".competence-choice").click(function(){
+		$(this).toggleClass("active");
+	});
 });
