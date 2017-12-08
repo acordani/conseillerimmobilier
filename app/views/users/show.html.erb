@@ -9,6 +9,10 @@
           	<% end %>
           	<% if @user == current_user %>
           		<%= link_to "Modifier mon Profil", edit_user_registration_path, class:"btn btn-primary"  %>
+				<% if @user.experiences.count == 0 %>
+
+					<%= link_to "Ajouter une Experience", new_user_experience_path(@user), class:"btn btn-primary mt-20" %>
+				<% end %>
           	<% end %>
 
 		</div>
@@ -18,23 +22,20 @@
 			<% if @user.is_realestate == true %>
 				<p>Conseiller immobilier</p>
 			<% end %>
-			<div class="col-md-3 pl-0">
-				<p style="font-weight:bold">A propos de <%= @user.first_name %></p>
-			</div>
-			<div class="col-md-9">
-				<p><%= @user.description %></p>
-			</div>
+			<% if @user.description? %>
+				<div class="col-md-3 pl-0">
+					<p style="font-weight:bold">A propos de <%= @user.first_name %></p>
+				</div>
+				<div class="col-md-9">
+					<p><%= @user.description %></p>
+				</div>
+			<% end %>
 			
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-3">
-			<% if @user.competences.count > 0 %>
-				<h4>Competences </h4>
-				<% @user.competences.each do |f| %>
-					<p><%= f.name %></p>
-				<% end %>
-			<% end %>
+			
 		</div>
 		<% if @user.experiences.count > 0 %>
 			<div class="col-md-7">
@@ -51,9 +52,10 @@
 					<% end %>
 				<% end %>
 			</div>
+		
 			<% @user.experiences.each do |experience| %>
 				<%= render "experience-card", experience: experience %>
 			<% end %>
 		<% end %>
-	</div>
+	
 </div>
