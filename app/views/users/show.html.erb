@@ -18,7 +18,7 @@
 		</div>
 
 		<div class="col-md-9 mt-50">
-			<h2><%= @user.first_name %> <%= @user.last_name %></h2>
+			<h2 style="margin-bottom:0.5px;"><%= @user.first_name %> <%= @user.last_name %></h2>
 			<% if @user.is_realestate == true %>
 				<p>Conseiller immobilier</p>
 			<% end %>
@@ -35,7 +35,12 @@
 	</div>
 	<div class="row">
 		<div class="col-md-3">
-			
+			<% if @user.competences.count > 0 %>
+			<h4 class="mt-25">Competences </h4>
+			<% @user.competences.each do |f| %>
+				<p><%= f.name %></p>
+			<% end %>
+		<% end %>
 		</div>
 		<% if @user.experiences.count > 0 %>
 			<div class="col-md-7">
@@ -52,10 +57,11 @@
 					<% end %>
 				<% end %>
 			</div>
-		
+		<% end %>
+	</div>
 			<% @user.experiences.each do |experience| %>
 				<%= render "experience-card", experience: experience %>
 			<% end %>
-		<% end %>
+		
 	
 </div>
