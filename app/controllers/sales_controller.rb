@@ -1,4 +1,5 @@
 class SalesController < ApplicationController
+	before_action :set_sale, only: [:show, :edit , :update, :destroy]
 
 	def index 
 		@sales = Sale.all
@@ -22,6 +23,18 @@ class SalesController < ApplicationController
 				render :new
 			end
 	end
+
+	def edit
+	end
+
+	def update
+		@sale.update(sale_params)
+		redirect_to sale_path(@sale)
+	end
+
+	def destroy
+	end
+
 
 
 	def sale_params
