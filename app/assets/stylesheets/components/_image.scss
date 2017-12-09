@@ -3,10 +3,8 @@
     height:auto;
   }
 
-.sale-card {
+  .card {
   background-size: cover;
-  height: 205px;
-  width:308px;
   margin-bottom: 0;
   position: relative;
   display:flex;
@@ -21,26 +19,22 @@
       background-color: white;
       opacity: 0.8;
     }
+
+  }
+
+.sale-card {
+  
+  height: 240px;
+  width:370px;
+  
   }
 
 
  .user-card {
-  background-size: cover;
+  
   height: 250px;
   width:250px;
-  margin-bottom: 0;
-  position: relative;
-  display:flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: distribute;
-  overflow:hidden;
-  justify-content: space-around;
-    &:hover {
-      background-color: white;
-      opacity: 0.8;
-    }
+  
   }
 
   
@@ -64,10 +58,11 @@
     font-size: 16px;
   }
 
+/* Position de l'avatar sur sale-card */
   .avatar-sale-card {
   	position:absolute;
   	top:10px;
-  	left:245px;
+  	left:305px;
   	width:30px;
   	height:30px;
 
@@ -77,5 +72,5 @@
   	position:absolute;
   	top:10px;
   	left:10px;
-  	
+
   }
