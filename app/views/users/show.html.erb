@@ -10,8 +10,10 @@
           	<% if @user == current_user %>
           		<%= link_to "Modifier mon Profil", edit_user_registration_path, class:"btn btn-primary"  %>
 				<% if @user.experiences.count == 0 %>
-
 					<%= link_to "Ajouter une Experience", new_user_experience_path(@user), class:"btn btn-primary mt-20" %>
+				<% end %>
+				<% if @user.sales.count == 0 %>
+					<%= link_to "Ajouter un bien", new_sale_path, class:"btn btn-primary mt-20" %>
 				<% end %>
           	<% end %>
 
@@ -44,11 +46,19 @@
 		</div>
 		<% if @user.experiences.count > 0 %>
 			<div class="col-md-7">
-				<h3 class="mb-20">Mes experiences 
-					<small>
-						(<%= @user.experiences.count %>)
-					</small>
-				</h3>
+				<% if @user.experiences.count < 2 %>
+					<h3 class="mb-20">Mon experience
+						<small>
+							(<%= @user.experiences.count %>)
+						</small>
+					</h3>
+				<% else %>
+					<h3 class="mb-20">Mes experiences 
+						<small>
+							(<%= @user.experiences.count %>)
+						</small>
+					</h3>
+				<% end %>
 			</div>
 			<div class="col-md-1">
 				<% if @user == current_user %>
@@ -59,9 +69,44 @@
 			</div>
 		<% end %>
 	</div>
-			<% @user.experiences.each do |experience| %>
-				<%= render "experience-card", experience: experience %>
-			<% end %>
-		
+	
+
+	<% @user.experiences.each do |experience| %>
+		<%= render "experience-card", experience: experience %>
+	<% end %>
+
+	<div class="row">
+		<div class="col-md-3"></div>
+		<% if @user.sales.count > 0 %>
+			<div class="col-md-7">
+				<% if @user.sales.count < 2 %>
+					<h3 class="mb-20">Mon bien immobilier à vendre
+						<small>
+							(<%= @user.sales.count %>)
+						</small>
+					</h3>
+				<% else %>
+					<h3 class="mb-20">Mes biens immobiliers à vendre
+						<small>
+							(<%= @user.sales.count %>)
+						</small>
+					</h3>
+				<% end %>
+			</div>
+			<div class="col-md-1">
+				<% if @user == current_user %>
+					<%= link_to new_user_experience_path(@user) do %>
+						<i class="fa fa-plus" aria-hidden="true"></i>
+					<% end %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+
+	<div class="row">
+		<% @user.sales.each do |sale| %>
+				<%= render "./pages/sales-card", sale: sale %>
+		<% end %>
+	</div>	
 	
 </div>

@@ -2,3 +2,63 @@
     width:100%;
     height:auto;
   }
+
+.sale-card {
+  background-size: cover;
+  height: 205px;
+  width:308px;
+  margin-bottom: 0;
+  position: relative;
+  display:flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  overflow:hidden;
+  justify-content: space-around;
+    &:hover {
+      background-color: white;
+      opacity: 0.8;
+    }
+  }
+
+
+ .user-card {
+  background-size: cover;
+  height: 250px;
+  width:250px;
+  margin-bottom: 0;
+  position: relative;
+  display:flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  overflow:hidden;
+  justify-content: space-around;
+    &:hover {
+      background-color: white;
+      opacity: 0.8;
+    }
+  }
+
+  
+
+  .card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  }
+
+  .sale-card-header {
+    color: white;
+    text-align: center;
+
+      
+    }
+  
+  .infos-sub-header {
+    font-size: 16px;
+  }

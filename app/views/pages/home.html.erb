@@ -17,8 +17,16 @@
 	<div class="row">
 		<% @users.each do |user| %>
 			<%= render "user-card", user: user %>
-			
-			
+		<% end %>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<h3 class="mt-50">Les nouveaux biens à vendre</h3>
+		</div>
+	<div class="row">
+		<% @sales.each do |sale| %>
+			<%= render "sales-card", sale: sale %>
 		<% end %>
 	</div>
 

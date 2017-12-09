@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
   	@users = User.where( is_realestate: true)
+  	@sales = Sale.all
   end
 end
