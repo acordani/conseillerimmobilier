@@ -16,6 +16,7 @@
   -ms-flex-pack: distribute;
   overflow:hidden;
   justify-content: space-around;
+  position:relative;
     &:hover {
       background-color: white;
       opacity: 0.8;
@@ -61,4 +62,13 @@
   
   .infos-sub-header {
     font-size: 16px;
+  }
+
+  .avatar-sale-card {
+  	position:absolute;
+  	top:10px;
+  	left:245px;
+  	width:30px;
+  	height:30px;
+
   }

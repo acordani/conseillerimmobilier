@@ -1,19 +1,17 @@
-
-
-
-<div class=""></div>
-	<div class="col-md-4">
-		<% if sale.photos.first != nil %>
-			<div class="sale-card" style="background-image: linear-gradient(135deg, rgba(150,109,105,0.2), rgba(150,109,105,0.4)), url('<%= cl_image_path sale.photos.first.path %>');", class: "img-responsive>
-		    	<div class="sale-card-header mt-80">
-		       		<h3><%= sale.title %></h3>
-		       		<br>
-					<p><%= sale.city %></p>
-				</div>
+<div class="col-md-4">
+	<% if sale.photos.first != nil %>
+		<div class="sale-card" style="background-image: linear-gradient(135deg, rgba(150,109,105,0.2), rgba(150,109,105,0.4)), url('<%= cl_image_path sale.photos.first.path %>');", class: "img-responsive>
+			<div class="avatar-sale-card"><%= cl_image_tag sale.user.picture.path, height: 50, width: 50, crop: :fill, class:"img-circle" %></div>
+		    <div class="sale-card-header mt-80">
+		       	<h3><%= sale.title %></h3>
+		       	<br>
+				<p><%= sale.city %></p>
+			</div>
 			<%= link_to "", sale_path(sale), class: "card-link" %>
-		    </div>
+		</div>
 
-		<% end %>
-	</div>
+	<% end %>
 </div>
-		
+
+
+
