@@ -12,7 +12,7 @@
 			</div>
 			<%= link_to "", sale_path(sale), class: "card-link" %>
 			<% unless current_page?(root_path) %>
-  				<% if @user = current_user %>
+  				<% if @user == current_user %>
 					<%= link_to edit_sale_path(sale), class:"pencil-sale-card" do %>
 						<i class="fa fa-pencil" aria-hidden="true"></i>
 					<% end %>
