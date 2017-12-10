@@ -1,3 +1,45 @@
-<% @sale.photos.each do |photo| %>
-  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-<% end %>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="sale-first-card" style="background-image: linear-gradient(135deg, rgba(150,109,105,0.2), rgba(150,109,105,0.4)), url('<%= cl_image_path @sale.photos.first.path %>')">
+				<div class="text-center">
+				<h1 class="pt-200 pb-50" style="font-weight: 700;color: #fff;"><%= @sale.title %></h1>
+
+				<p class="pb-200" style="font-weight: 700;color: #fff;"><%= @sale.user.first_name %> <%= @sale.user.last_name %></p>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="flexbox">
+			<div class="col-md-6">
+				<p style="color:black;" ><%= @sale.city %></p>
+			</div>
+			<div class="col-md-3">
+				<div class="text-center" style= "background-color: rgba(7,7,7,0.76) !important; color:white; padding-top:10px; padding-bottom:10px;">
+					<h2><%= @sale.price %> € </h2>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="text-center" style= "color:white; padding-top:10px; padding-bottom:10px;">
+					<button class="btn btn-primary">JE SOUHAITE VISITER LE BIEN </button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<% @sale.photos.each do |photo| %>
+  			<%= cl_image_tag photo.path, width: 288, height: 200, crop: :fill %>
+		<% end %>
+	</div>
+	<div class="row">
+		<div class="text-center mt-50 mb-50">
+			<%= @sale.description %>
+		</div>
+	</div>
+</div>
+
+
+

@@ -6,5 +6,5 @@ class Sale < ApplicationRecord
 
 	belongs_to :user
 
-	has_attachments :photos, maximum: 3
+	has_attachments :photos, maximum: 4
 end
