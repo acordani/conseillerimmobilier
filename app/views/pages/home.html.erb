@@ -31,5 +31,15 @@
 			<%= render "sales-card", sale: sale %>
 		<% end %>
 	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h3 class="mt-50 bold">Les nouveaux biens vendus</h3>
+		</div>
+	</div>
+	<div class="row">
+		<% @sold.each do |sale| %>
+			<%= render "sales-card", sale: sale %>
+		<% end %>
+	</div>
 
 </div>

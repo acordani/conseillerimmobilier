@@ -1,26 +1,28 @@
 <div class="col-md-4">
-	<% if sale.photos.first != nil %>
-		<div class="card sale-card" style="background-image: linear-gradient(135deg, rgba(150,109,105,0.2), rgba(150,109,105,0.4)), url('<%= cl_image_path sale.photos.first.path %>');", class: 	"img-responsive>
-			<div class="avatar-sale-card">
-				<%= cl_image_tag sale.user.picture.path, height: 50, width: 50, crop: :fill, class:"img-circle" %>
-			</div>
-			
-		    
-			<%= link_to "", sale_path(sale), class: "card-link" %>
-			<% unless current_page?(root_path) %>
-  				<% if @user == current_user %>
-					<%= link_to edit_sale_path(sale), class:"pencil-sale-card" do %>
-						<i class="fa fa-pencil" aria-hidden="true"></i>
+
+		<% if sale.photos.first != nil %>
+			<div class="card sale-card" style="background-image: linear-gradient(135deg, rgba(150,109,105,0.2), rgba(150,109,105,0.4)), url('<%= cl_image_path sale.photos.first.path %>');", class: 	"img-responsive>
+				<div class="avatar-sale-card">
+					<%= cl_image_tag sale.user.picture.path, height: 50, width: 50, crop: :fill, class:"img-circle" %>
+				</div>
+				
+			    
+				<%= link_to "", sale_path(sale), class: "card-link" %>
+				<% unless current_page?(root_path) %>
+	  				<% if @user == current_user %>
+						<%= link_to edit_sale_path(sale), class:"pencil-sale-card" do %>
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+						<% end %>
 					<% end %>
 				<% end %>
-			<% end %>
-				
-		</div>
-		<p style="font-size:12px; color:#1e4358;padding-top:10px; font-weight:bold; margin-bottom:5px;"><%= sale.construction.upcase %> - <%= sale.city %></p>
-		<p style="font-size:19px; color:#484848; line-height: 22px; font-weight:bold;margin-bottom:5px"><%=sale.title %></p>
-		<p style="font-size:15px; color:#484848; line-height:18px;"><%= sale.price%> €</p>
+					
+			</div>
+			<p style="font-size:12px; color:#1e4358;padding-top:10px; font-weight:bold; margin-bottom:5px;"><%= sale.construction.upcase %> - <%= sale.city %></p>
+			<p style="font-size:19px; color:#484848; line-height: 22px; font-weight:bold;margin-bottom:5px"><%=sale.title %></p>
+			<p style="font-size:15px; color:#484848; line-height:18px;"><%= sale.price%> €</p>
 
-	<% end %>
+		<% end %>
+
 </div>
 
 

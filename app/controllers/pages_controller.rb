@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
   	
   	@users = User.where( is_realestate: true)
-  	@sales = Sale.all
+  	@sales = Sale.where( phase: "A vendre")
+  	@sold = Sale.where( phase: "Vendu")
   end
 end
